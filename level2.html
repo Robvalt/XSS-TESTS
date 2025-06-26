@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XSS Level 2</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; }
+    .comment-box { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>XSS Playground — Level 2</h1>
+  <p>Leave a comment:</p>
+
+  <input id="commentInput" placeholder="Type your comment..." />
+  <button onclick="postComment()">Post</button>
+
+  <div id="comments"></div>
+
+  <script>
+    function postComment() {
+      const comment = document.getElementById("commentInput").value;
+      const commentDiv = document.createElement("div");
+      commentDiv.className = "comment-box";
+      commentDiv.innerHTML = comment;
+      document.getElementById("comments").appendChild(commentDiv);
+    }
+  </script>
+</body>
+</html>

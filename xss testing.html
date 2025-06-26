@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>XSS TESTING</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #ffffff;
+				margin: 2em;
+			}
+			h1 {
+				color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Welcome To XSS Testing!</h1>
+	
+		<p id="result"></p>
+		<input id="input" placeholder="enter something">
+		<button id="submit">Submit</button>
+		
+		<script>
+			document.getElementById('submit').addEventListener('click', () => {
+				const userInput = document.getElementById('input').value;
+				document.getElementById('result').innerHTML = "You Entered: " + userInput;
+			});
+		</script>
+	</body>
+</html>

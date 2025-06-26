@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XSS Level 3</title>
+  <style>
+    .log { font-family: monospace; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>XSS Playground — Level 3</h1>
+  <p>Submit your message (no script tags or angle brackets allowed!):</p>
+
+  <input id="entry" placeholder="Your message..." />
+  <button onclick="submitMsg()">Submit</button>
+
+  <div class="log" id="logArea"></div>
+
+  <script>
+    function sanitize(input) {
+      return input.replaceAll("<", "").replaceAll(">", "").replaceAll("script", "");
+    }
+
+    function submitMsg() {
+      const raw = document.getElementById("entry").value;
+      const clean = sanitize(raw);
+      const log = document.getElementById("logArea");
+      log.innerHTML += "<div>User said: " + clean + "</div>";
+    }
+  </script>
+</body>
+</html>

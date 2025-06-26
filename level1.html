@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XSS Level 1</title>
+</head>
+<body>
+  <h1>XSS Playground — Level 1</h1>
+  <p>Try entering HTML or JavaScript code:</p>
+
+  <input id="userInput" placeholder="Type something here" />
+  <button onclick="run()">Submit</button>
+
+  <div id="output"></div>
+
+  <script>
+    function run() {
+      const input = document.getElementById("userInput").value;
+      document.getElementById("output").innerHTML = "Output: " + input;
+    }
+  </script>
+</body>
+</html>

